@@ -31,3 +31,24 @@ def R_ES_W(ess, k, m):
 def R_ES_N(ess, k, m):
     return not R_ES_UW(ess, k, m)
 
+def RN_R_FSM(fsm, k, m):
+    return RN_C_FSM(fsm, k, m)
+
+def RUN_R_FSM(fsm, k, m):
+    return (fsm[fsm[:, k] == 1, m] == 1).all()
+
+def RUW_R_FSM(fsm, k, m):
+    return (fsm[fsm[:, k] == 1, m] == 0).any()
+
+def RW_R_FSM(fsm, k, m):
+    return RUW_R_FSM(fsm, m, k) and RUW_R_FSM(fsm, k, m)
+
+def RUS_R_FSM(fsm, k, m):
+    return (fsm[fsm[:, k] == 1, m] == 0).sum() > 1
+
+def RS_R_FSM(fsm, k, m):
+    return RUS_R_FSM(fsm, m, k) and RUS_R_FSM(fsm, k, m)
+
+
+    
+

@@ -47,3 +47,22 @@ def EIM_star_C_FSM(fsm, ess, comp_weights):
             imes_index = next((i for i, x in enumerate(imes) if x), None)
             eim_star[k, m] = comp_weights.iloc[eim_index].iloc[imes_index]
     return eim_star
+
+def EIM_R_FSM(fsm):
+    K = fsm.shape[1]
+    eim = np.zeros((K, K))
+    for k in range(K):
+        for m in range(K):
+            if pr.RS_R_FSM(fsm, k, m):
+                eim[k, m] = dw.delta_FSM_R['S']
+            elif pr.RUS_R_FSM(fsm, k, m):
+                eim[k, m] = dw.delta_FSM_R['US']
+            elif pr.RW_R_FSM(fsm, k, m):
+                eim[k, m] = dw.delta_FSM_R['W']
+            elif pr.RUW_R_FSM(fsm, k, m):
+                eim[k, m] = dw.delta_FSM_R['UW']
+            elif pr.RUN_R_FSM(fsm, k, m):
+                eim[k, m] = dw.delta_FSM_R['UN']
+            elif pr.RN_R_FSM(fsm, k, m):
+                eim[k, m] = dw.delta_FSM_R['N']
+    return eim

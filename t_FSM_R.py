@@ -15,9 +15,9 @@ fsm_df
 fsm = fsm_df.to_numpy()
 fsm
 # %%
-pr.R_ES_W(ess, 1, 2)
+pr.RS_R_FSM(fsm, 7, 8)
 # %%
-eim = ind.EIM_C_FSM(fsm)
+eim = ind.EIM_R_FSM(fsm)
 eim
 # %%
 c_delta = ind.C_Delta(eim)
@@ -40,3 +40,4 @@ print(f"{c_delta:.3f}")
 # %%
 c_star_delta = ind.C_star_Delta(eim_star)
 print(f"{c_star_delta:.3f}")
+# %%
