@@ -76,3 +76,40 @@ def RS_C_FIS(fis, k, m):
     col_k = fis.iloc[:, k]
     col_m = fis.iloc[:, m]
     return sum(v_k.isdisjoint(v_m) for v_k, v_m in zip(col_k, col_m)) > 1
+
+def RN_R_FIS(fis, k, m):
+    return RN_C_FIS(fis, k, m)
+
+def RUN_R_FIS(fis, k, m):
+    col_k = fis.iloc[:, k]
+    col_m = fis.iloc[:, m]
+    return all(v_k == v_m for v_k, v_m in zip(col_k, col_m) if '0' not in v_k)
+
+def RUW_R_FIS(fis, k, m):
+    col_k = fis.iloc[:, k]
+    col_m = fis.iloc[:, m]
+    return any('0' in v_m for v_k, v_m in zip(col_k, col_m) if '0' not in v_k)
+
+def RW_R_FIS(fis, k, m):
+    col_k = fis.iloc[:, k]
+    col_m = fis.iloc[:, m]
+    cond1 = any(v_k.isdisjoint(v_m) for v_k, v_m in zip(col_k, col_m) if '0' not in v_m and '0' not in v_k)
+    cond2 = RUW_R_FIS(fis, m, k) and RUW_R_FIS(fis, k, m)
+    return cond1 or cond2
+
+def RUC_R_FIS(fis, k, m):
+    return RUC_C_FIS(fis, k, m)
+
+def RC_R_FIS(fis, k, m):
+    return RC_C_FIS(fis, k, m)
+
+def RUS_R_FIS(fis, k, m):
+    col_k = fis.iloc[:, k]
+    col_m = fis.iloc[:, m]
+    return sum('0' in v_m for v_k, v_m in zip(col_k, col_m) if '0' not in v_k) > 1
+
+def RS_R_FIS(fis, k, m):
+    col_k = fis.iloc[:, k]
+    col_m = fis.iloc[:, m]
+    cond1 = sum(v_k.isdisjoint(v_m) for v_k, v_m in zip(col_k, col_m) if '0' not in v_m and '0' not in v_k)
+    return cond1 > 1 # definicja do dyskusji

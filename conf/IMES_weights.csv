@@ -8,16 +8,22 @@ RW_R_FSM; 2; 1.5; 1
 RJW_R_FSM; 2; 1.4; 1
 RJN_R_FSM; 1; 0.7; 0
 RN_R_FSM; 1; 0.5; 0
-RN_C_FIS; 1; 0.5; 0
-RW_C_FIS; 2; 1.5; 1
-RJC_C_FIS; 1.4; 0.7; 0.4
-RC_C_FIS; 1.7; 1.2; 0.7
 RS_Cn_FIS; 2; 2; 2
-RN_R_FIS; 1; 0.5; 0
-RJN_R_FIS; 1; 0.5; 0
-RJW_R_FIS; 2; 1.5; 1
-RW_R_FIS; 2; 1.5; 1
-RJC_R_FIS; 1.4; 0.9; 0.4
-RC_R_FIS; 1.7; 1.2; 0.7
-RJS_Rn_FIS; 2; 2; 1.5
+RW_C_FIS; 2; 1.5; 1
+RC_C_FIS; 1.7; 1.2; 0.7
+RJC_C_FIS; 1.4; 0.7; 0.4
+RN_C_FIS; 1; 0.5; 0
 RS_Rn_FIS; 2; 2; 2
+RJS_Rn_FIS; 2; 2; 1.5
+RW_R_FIS; 2; 1.5; 1
+RJW_R_FIS; 2; 1.5; 1
+RJN_R_FIS; 1; 0.5; 0
+RC_R_FIS; 1.7; 1.2; 0.7
+RJC_R_FIS; 1.4; 0.9; 0.4
+RN_R_FIS; 1; 0.5; 0
+
+
+
+
+
+
