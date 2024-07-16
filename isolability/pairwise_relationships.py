@@ -49,6 +49,30 @@ def RUS_R_FSM(fsm, k, m):
 def RS_R_FSM(fsm, k, m):
     return RUS_R_FSM(fsm, m, k) and RUS_R_FSM(fsm, k, m)
 
+def RN_C_FIS(fis, k, m):
+    return fis.iloc[:, k].equals(fis.iloc[:, m])
 
-    
+def RUC_C_FIS(fis, k, m):
+    col_k = fis.iloc[:, k]
+    col_m = fis.iloc[:, m]
+    cond_incl = all(v_m.issubset(v_k) for v_k, v_m in zip(col_k, col_m))
+    cond_neq = any(v_k != v_m for v_k, v_m in zip(col_k, col_m))
+    return cond_incl and cond_neq
 
+def RC_C_FIS(fis, k, m):
+    col_k = fis.iloc[:, k]
+    col_m = fis.iloc[:, m]
+    cond1 = all(not v_m.isdisjoint(v_k) for v_k, v_m in zip(col_k, col_m))
+    cond2 = any(v_k.issubset(v_m) and v_k != v_m for v_k, v_m in zip(col_k, col_m))
+    cond3 = any(v_m.issubset(v_k) and v_m != v_k for v_k, v_m in zip(col_k, col_m))
+    return cond1 and cond2 and cond3
+
+def RW_C_FIS(fis, k, m):
+    col_k = fis.iloc[:, k]
+    col_m = fis.iloc[:, m]
+    return any(v_m.isdisjoint(v_k) for v_k, v_m in zip(col_k, col_m))
+
+def RS_C_FIS(fis, k, m):
+    col_k = fis.iloc[:, k]
+    col_m = fis.iloc[:, m]
+    return sum(v_k.isdisjoint(v_m) for v_k, v_m in zip(col_k, col_m)) > 1

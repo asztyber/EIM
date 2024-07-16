@@ -8,16 +8,16 @@ import importlib
 importlib.reload(pr)
 importlib.reload(ind)
 
-#%%
-fsm_df = pd.read_csv('four_tanks/fsm.csv', sep=';', index_col=0)
-fsm_df
 # %%
-fsm = fsm_df.to_numpy()
-fsm
+fis_df = pd.read_csv('four_tanks/fis.csv', sep=';', index_col=0, dtype=str)
+fis_df
 # %%
-pr.R_ES_W(ess, 1, 2)
+fis_df = fis_df.map(lambda x: set(a.strip() for a in x.split(',')))
+fis_df
 # %%
-eim = ind.EIM_C_FSM(fsm)
+pr.RS_C_FIS(fis_df, 7, 8)
+# %%
+eim = ind.EIM_C_FIS(fis_df)
 eim
 # %%
 c_delta = ind.C_Delta(eim)
@@ -32,7 +32,7 @@ imes
 comp_weights = pd.read_csv('conf/IMES_weights.csv', sep=';', index_col=0)
 comp_weights
 # %%
-eim_star = ind.EIM_star_C_FSM(fsm, ess, comp_weights)
+eim_star = ind.EIM_star_C_FIS(fis_df, ess, comp_weights)
 eim_star
 # %%
 c_delta = ind.C_Delta(eim_star)
