@@ -1,0 +1,12 @@
+;RW_ES; RJW_ES; RN_ES
+RS_Cn_FIS; 2; 2; 2
+RW_C_FIS; 2; 1.5; 1
+RC_C_FIS; 1.7; 1.2; 0.7
+RJC_C_FIS; 1.4; 0.7; 0.4
+RN_C_FIS; 1; 0.5; 0
+
+
+
+
+
+

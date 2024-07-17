@@ -29,7 +29,7 @@ print(f"{c_star_delta:.3f}")
 imes = ind.IMES(ess)
 imes
 # %%
-comp_weights = pd.read_csv('conf/IMES_weights.csv', sep=';', index_col=0)
+comp_weights = pd.read_csv('conf/IMES_weights_FSM_C.csv', sep=';', index_col=0)
 comp_weights
 # %%
 eim_star = ind.EIM_star_C_FSM(fsm, ess, comp_weights)
