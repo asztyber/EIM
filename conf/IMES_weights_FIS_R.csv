@@ -1,11 +1,11 @@
 ;RW_ES; RJW_ES; RN_ES
 RS_Rn_FIS; 2; 2; 2
-RJS_Rn_FIS; 2; 2; 1.5
+RUS_Rn_FIS; 2; 2; 1.5
 RW_R_FIS; 2; 1.5; 1
-RJW_R_FIS; 2; 1.5; 1
-RJN_R_FIS; 1; 0.5; 0
+RUW_R_FIS; 2; 1.5; 1
 RC_R_FIS; 1.7; 1.2; 0.7
-RJC_R_FIS; 1.4; 0.9; 0.4
+RUC_R_FIS; 1.4; 0.9; 0.4
+RUN_R_FIS; 1; 0.5; 0
 RN_R_FIS; 1; 0.5; 0
 
 

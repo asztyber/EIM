@@ -1,9 +1,9 @@
 ;RW_ES; RJW_ES; RN_ES
 RS_Rn_FSM; 2; 2; 2
-RJS_Rn_FSM; 2; 2; 1.5
+RUS_Rn_FSM; 2; 2; 1.5
 RW_R_FSM; 2; 1.5; 1
-RJW_R_FSM; 2; 1.4; 1
-RJN_R_FSM; 1; 0.7; 0
+RUW_R_FSM; 2; 1.4; 1
+RUN_R_FSM; 1; 0.7; 0
 RN_R_FSM; 1; 0.5; 0
 
 
