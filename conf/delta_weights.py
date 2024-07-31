@@ -21,6 +21,7 @@ delta_FSM_R = {
 
 delta_FIS_C = {
     'N': 0,
+    'UN': 0,
     'W': 1,
     'UC': 0.4,
     'C': 0.7,

@@ -52,6 +52,11 @@ def RS_R_FSM(fsm, k, m):
 def RN_C_FIS(fis, k, m):
     return fis.iloc[:, k].equals(fis.iloc[:, m])
 
+def RUN_C_FIS(fis, k, m):
+    col_k = fis.iloc[:, k]
+    col_m = fis.iloc[:, m]
+    return all(v_k.issubset(v_m) for v_k, v_m in zip(col_k, col_m)) and not RN_C_FIS(fis, k, m)
+
 def RUC_C_FIS(fis, k, m):
     col_k = fis.iloc[:, k]
     col_m = fis.iloc[:, m]
@@ -81,9 +86,7 @@ def RN_R_FIS(fis, k, m):
     return RN_C_FIS(fis, k, m)
 
 def RUN_R_FIS(fis, k, m):
-    col_k = fis.iloc[:, k]
-    col_m = fis.iloc[:, m]
-    return all(v_k == v_m for v_k, v_m in zip(col_k, col_m) if '0' not in v_k)
+    return RUN_C_FIS(fis, k, m)
 
 def RUW_R_FIS(fis, k, m):
     col_k = fis.iloc[:, k]
@@ -112,4 +115,6 @@ def RS_R_FIS(fis, k, m):
     col_k = fis.iloc[:, k]
     col_m = fis.iloc[:, m]
     cond1 = sum(v_k.isdisjoint(v_m) for v_k, v_m in zip(col_k, col_m) if '0' not in v_m and '0' not in v_k)
-    return cond1 > 1 # definicja do dyskusji
+    cond2 = sum('0' not in v_m and '0' in v_k for v_k, v_m in zip(col_k, col_m))
+    cond3 = sum('0' not in v_k and '0' in v_m for v_k, v_m in zip(col_k, col_m))
+    return cond1 + cond2*cond3 > 1
