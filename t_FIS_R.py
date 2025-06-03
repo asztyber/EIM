@@ -1,7 +1,7 @@
 #%%
 import pandas as pd
 from isolability import pairwise_relationships as pr
-import isolability.martices_and_indices as ind
+import isolability.matrices_and_indices as ind
 from four_tanks.es import ess
 # %%
 fis_df = pd.read_csv('four_tanks/fis.csv', sep=';', index_col=0, dtype=str)
